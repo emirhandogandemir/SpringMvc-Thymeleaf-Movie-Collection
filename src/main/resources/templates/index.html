@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Actors Management System</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="container">
+
+    <h1 align="center">Actors List</h1>
+    <a th:href="@{/showNewActorForm}" class="btn btn-primary btn-sm mb-3">Add Employee</a>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Actor name</th>
+            <th>Actor surname</th>
+            <th>role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="actor : ${listActors}">
+            <td th:text="${actor.name}"></td>
+            <td th:text="${actor.surname}"></td>
+            <td th:text="${actor.role}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

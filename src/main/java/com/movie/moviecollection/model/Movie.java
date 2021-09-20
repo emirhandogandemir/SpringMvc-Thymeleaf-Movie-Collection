@@ -17,7 +17,7 @@ public class Movie {
     private String name;
 
     @Column(name="release_year",nullable = false)
-    private Date releaseYear;
+    private String releaseYear;
 
     @Column(name="type",nullable = false)
     private String type;
@@ -38,7 +38,7 @@ public class Movie {
 
     }
 
-    public Movie(int id, Date releaseYear, String type, String explanation, String media, String language, Set<Actor> actors) {
+    public Movie(int id, String releaseYear, String type, String explanation, String media, String language, Set<Actor> actors) {
         this.id = id;
         this.releaseYear = releaseYear;
         this.type = type;
@@ -56,11 +56,11 @@ public class Movie {
         this.id = id;
     }
 
-    public Date getReleaseYear() {
+    public String getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(Date releaseYear) {
+    public void setReleaseYear(String releaseYear) {
         this.releaseYear = releaseYear;
     }
 
