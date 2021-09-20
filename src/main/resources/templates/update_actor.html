@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Actor Management System</title>
+    <title>Employee Management System</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -10,15 +10,15 @@
 <div class="container">
     <h1>Actor Management System</h1>
     <hr>
-    <h2>Save Actor</h2>
+    <h2>Update Actor</h2>
 
     <form action="#" th:action="@{/saveActor}" th:object="${actor}" ,method="POST">
 
-        <input type="text" th:field="*{name}" placeholder="Actor firstName" class="form-control mb-4 col-4">
-        <input type="text" th:field="*{surname}" placeholder="Actor lastname" class="form-control mb-4 col-4">
-        <input type="text" th:field="*{role}" placeholder="Actor role" class="form-control mb-4 col-4">
-        <input type="number" th:field="*{movie.id}" placeholder="Actors movie" class="form-control mb-4 col-4">
-        <button type="submit" class="btn btn-info col-2"> Save Actor</button>
+        <input type="text" th:field="*{name}"  class="form-control mb-4 col-4">
+        <input type="text" th:field="*{surname}"  class="form-control mb-4 col-4">
+        <input type="text" th:field="*{role}"  class="form-control mb-4 col-4">
+        <input type="number" th:field="*{movie.id}"  class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2"> Update Actor</button>
         <a href="/" class="btn btn-primary col-2"> Home Page</a>
     </form>
 

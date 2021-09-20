@@ -4,6 +4,7 @@ import com.movie.moviecollection.dto.ActorDto;
 import com.movie.moviecollection.model.Actor;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ActorService {
 
@@ -15,6 +16,6 @@ public interface ActorService {
 
     Actor updateActor(Actor actor);
 
-    void deleteMovieById(int id);
+    void deleteActorById(int id);
 
 }
