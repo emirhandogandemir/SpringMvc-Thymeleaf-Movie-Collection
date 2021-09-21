@@ -49,8 +49,8 @@ public class MovieController {
         return "update_movie";
     }
 
-    @PostMapping("/deleteMovie/{id}")
-    public String deleteActor(@PathVariable(value = "id") int id, Model model) {
+    @GetMapping("/deleteMovie/{id}")
+    public String deleteMovie(@PathVariable(value = "id") int id, Model model) {
 
         this.movieService.deleteByMovieId(id);
         return "redirect:/";

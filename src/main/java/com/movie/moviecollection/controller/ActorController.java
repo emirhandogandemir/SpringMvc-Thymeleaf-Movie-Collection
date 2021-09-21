@@ -5,10 +5,7 @@ import com.movie.moviecollection.service.ActorService;
 import com.movie.moviecollection.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ActorController {
@@ -22,14 +19,19 @@ public class ActorController {
         this.movieService=movieService;
     }
 
-    @GetMapping("/")
+    @RequestMapping(value="/",method = RequestMethod.GET)
     public String viewHomePage(Model model) {
         model.addAttribute("listActors", actorService.getAllActors());
         model.addAttribute("listMovies",movieService.getAllMovies());
         return "index";
     }
 
-
+    @GetMapping("/getByActorId/{id}")
+    public String getById(@PathVariable(value = "id") int id ,Model model){
+        Actor actor = this.actorService.findActorById(id);
+        model.addAttribute("actor",actor);
+        return "actor_detail";
+    }
 
     @GetMapping("/showNewActorForm")
     public String showNewActorForm(Model model) {
@@ -38,16 +40,14 @@ public class ActorController {
         return "new_actor";
     }
 
-    @PostMapping("/saveActor")
+    @RequestMapping(value = "/saveActor",method = RequestMethod.POST)
     public String saveActor(@ModelAttribute("actor") Actor actor) {
-        // save actor to database
         this.actorService.addNewActor(actor);
         return "redirect:/";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") int id, Model model) {
-        // get Actor
         Actor actor = this.actorService.findActorById(id);
         model.addAttribute("actor", actor);
         return "update_actor";
