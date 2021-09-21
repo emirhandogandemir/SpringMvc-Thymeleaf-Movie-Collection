@@ -11,7 +11,7 @@ public interface MovieService {
 
     List<Movie> getAllMovies();
 
-    Movie findByMovieDto(int id);
+    Movie findByMovie(int id);
 
     Movie updateMovie(Movie movie);
 

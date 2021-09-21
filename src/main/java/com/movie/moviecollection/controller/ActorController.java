@@ -2,6 +2,7 @@ package com.movie.moviecollection.controller;
 
 import com.movie.moviecollection.model.Actor;
 import com.movie.moviecollection.service.ActorService;
+import com.movie.moviecollection.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,16 +14,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ActorController {
 
     private final ActorService actorService;
+    private final MovieService movieService;
 
-    public ActorController(ActorService actorService) {
+    public ActorController(ActorService actorService,MovieService movieService) {
+
         this.actorService = actorService;
+        this.movieService=movieService;
     }
 
     @GetMapping("/")
     public String viewHomePage(Model model) {
         model.addAttribute("listActors", actorService.getAllActors());
+        model.addAttribute("listMovies",movieService.getAllMovies());
         return "index";
     }
+
+
 
     @GetMapping("/showNewActorForm")
     public String showNewActorForm(Model model) {
@@ -46,7 +53,7 @@ public class ActorController {
         return "update_actor";
     }
 
-    @GetMapping("/deleteActor/{id}")
+    @PostMapping("/deleteActor/{id}")
     public String deleteActor(@PathVariable(value = "id") int id, Model model) {
 
         this.actorService.deleteActorById(id);

@@ -29,7 +29,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Movie findByMovieDto(int id) {
+    public Movie findByMovie(int id) {
         return this.movieRepository.getById(id);
     }
 

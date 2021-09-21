@@ -13,32 +13,32 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="name",nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name="release_year",nullable = false)
+    @Column(name = "release_year", nullable = false)
     private String releaseYear;
 
-    @Column(name="type",nullable = false)
+    @Column(name = "type", nullable = false)
     private String type;
 
-    @Column(name="explanation",nullable = false)
+    @Column(name = "explanation", nullable = false)
     private String explanation;
 
-    @Column(name="media",nullable = false)
+    @Column(name = "media", nullable = false)
     private String media;
 
-    @Column(name="language",nullable = false)
+    @Column(name = "language", nullable = false)
     private String language;
 
-    @OneToMany(mappedBy = "movie",fetch = FetchType.EAGER,cascade =CascadeType.ALL)
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Actor> actors = new HashSet<>();
 
-    public Movie(){
+    public Movie() {
 
     }
 
-    public Movie(int id, String releaseYear, String type, String explanation, String media, String language, Set<Actor> actors) {
+    public Movie(int id, String releaseYear, String type, String explanation, String media, String language, Set<Actor> actors, String name) {
         this.id = id;
         this.releaseYear = releaseYear;
         this.type = type;
@@ -46,6 +46,7 @@ public class Movie {
         this.media = media;
         this.language = language;
         this.actors = actors;
+        this.name = name;
     }
 
     public int getId() {
@@ -58,6 +59,14 @@ public class Movie {
 
     public String getReleaseYear() {
         return releaseYear;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setReleaseYear(String releaseYear) {
