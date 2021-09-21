@@ -8,10 +8,16 @@
 </head>
 <body>
 <div class="container">
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
 
-    <h2>Update Movie</h2>
+    </div>
+    <div class="col-3"></div>
+</div>
+    <h2>Movie Detail</h2>
 
-    <form action="#" th:action="@{/saveMovie}" th:object="${movie}" ,method="post">
+    <form  th:object="${movie}">
 
         <input type="text" th:field="*{explanation}"  class="form-control mb-4 col-4">
         <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
@@ -19,9 +25,10 @@
         <input type="text" th:field="*{media}" class="form-control mb-4 col-4">
         <input type="text" th:field="*{releaseYear}" class="form-control mb-4 col-4">
         <input type="text" th:field="*{type}" class="form-control mb-4 col-4">
-        <button type="submit" class="btn btn-info col-2"> Update Movie</button>
         <a href="/" class="btn btn-primary col-2"> Home Page</a>
     </form>
+
+
 
 
 </div>

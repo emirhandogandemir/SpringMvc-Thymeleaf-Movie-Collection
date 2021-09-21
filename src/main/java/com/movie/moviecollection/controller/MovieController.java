@@ -56,6 +56,12 @@ public class MovieController {
         return "redirect:/";
 
     }
+    @GetMapping("/getById/{id}")
+    public String getById(@PathVariable(value = "id") int id, Model model) {
+        Movie movie = this.movieService.findByMovie(id);
+        model.addAttribute("movie", movie);
+        return "movie_detail";
 
+    }
 
 }

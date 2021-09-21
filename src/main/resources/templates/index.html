@@ -57,7 +57,8 @@
             <td th:text="${movie.releaseYear}"></td>
             <td th:text="${movie.language}"></td>
             <td> <a th:href="@{/showFormForUpdateMovie/{id}(id=${movie.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deleteMovie/{id}(id=${movie.id})}" class="btn btn-danger">Delete</a></td>
+                <a th:href="@{/deleteMovie/{id}(id=${movie.id})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/getById/{id}(id=${movie.id})}" class="btn btn-secondary">Detail</a></td>
         </tr>
         </tbody>
     </table>
