@@ -2,7 +2,7 @@
 
 
 > Spring, Thymeleaf, JPA, Maven, Bootstrap teknolojilerini kullanarak
-> basit bir film koleksiyon uygulaması geliştirme uygulaması
+> basit bir film koleksiyon uygulaması 
 >
 > Uygulama özellikleri:
 > * Film Tanımı ( Ad, Yayın Yılı, Tür, Açıklama, Medya, Dil seçenekleri )
