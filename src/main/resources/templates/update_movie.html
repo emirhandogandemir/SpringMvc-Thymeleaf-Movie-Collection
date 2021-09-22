@@ -5,7 +5,7 @@
     <title>MovieCollection Management System</title>
     <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js" th:src="@{/static/js/main.js}"></script>
 </head>
 <body>
 <div class="container">
@@ -13,7 +13,7 @@
     <h2>Update Movie</h2>
 
     <form action="#" th:action="@{/saveMovie}" th:object="${movie}" ,method="put">
-
+        <input type="number" th:field="*{id}"  class="form-control mb-4 col-4">
         <input type="text" th:field="*{explanation}"  class="form-control mb-4 col-4">
         <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
         <input type="text" th:field="*{language}" class="form-control mb-4 col-4">

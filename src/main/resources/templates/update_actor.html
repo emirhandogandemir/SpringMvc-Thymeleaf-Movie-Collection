@@ -14,7 +14,7 @@
     <h2>Update Actor</h2>
 
     <form action="#" th:action="@{/saveActor}" th:object="${actor}" ,method="put">
-
+        <input type="text" th:field="*{id}"  class="form-control mb-4 col-4">
         <input type="text" th:field="*{name}"  class="form-control mb-4 col-4">
         <input type="text" th:field="*{surname}"  class="form-control mb-4 col-4">
         <input type="text" th:field="*{role}"  class="form-control mb-4 col-4">

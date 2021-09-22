@@ -53,7 +53,7 @@ public class ActorController {
         return "update_actor";
     }
 
-    @RequestMapping(value = "/deleteActor/{id}",method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/deleteActor/{id}",method = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
     public String deleteActor(@PathVariable(value = "id") int id, Model model) {
 
         this.actorService.deleteActorById(id);
