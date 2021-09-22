@@ -19,34 +19,34 @@ public class ActorController {
         this.movieService=movieService;
     }
 
-    @RequestMapping(value="/",method = RequestMethod.GET)
+    @RequestMapping(value="/")
     public String viewHomePage(Model model) {
         model.addAttribute("listActors", actorService.getAllActors());
         model.addAttribute("listMovies",movieService.getAllMovies());
         return "index";
     }
 
-    @GetMapping("/getByActorId/{id}")
+    @RequestMapping("/getByActorId/{id}")
     public String getById(@PathVariable(value = "id") int id ,Model model){
         Actor actor = this.actorService.findActorById(id);
         model.addAttribute("actor",actor);
         return "actor_detail";
     }
 
-    @GetMapping("/showNewActorForm")
+    @RequestMapping("/showNewActorForm")
     public String showNewActorForm(Model model) {
         Actor actor = new Actor();
         model.addAttribute("actor", actor);
         return "new_actor";
     }
 
-    @RequestMapping(value = "/saveActor",method = RequestMethod.POST)
-    public String saveActor(@ModelAttribute("actor") Actor actor) {
+    @PostMapping(value = "/saveActor")
+    public String saveActor(Actor actor) {
         this.actorService.addNewActor(actor);
         return "redirect:/";
     }
 
-    @GetMapping("/showFormForUpdate/{id}")
+    @RequestMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") int id, Model model) {
         Actor actor = this.actorService.findActorById(id);
         model.addAttribute("actor", actor);

@@ -5,10 +5,7 @@ import com.movie.moviecollection.model.Movie;
 import com.movie.moviecollection.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -56,7 +53,7 @@ public class MovieController {
         return "redirect:/";
 
     }
-    @GetMapping("/getById/{id}")
+    @RequestMapping("/getById/{id}")
     public String getById(@PathVariable(value = "id") int id, Model model) {
         Movie movie = this.movieService.findByMovie(id);
         model.addAttribute("movie", movie);
