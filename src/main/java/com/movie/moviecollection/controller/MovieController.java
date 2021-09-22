@@ -26,12 +26,7 @@ public class MovieController {
         return "new_movie";
     }
 
-    @GetMapping("/getAllMovies")
-    public List<Movie> getAllMovies(){
-        return this.movieService.getAllMovies();
-    }
-
-    @RequestMapping(value = "/saveMovie",method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/saveMovie",method = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
     public String saveActor(@ModelAttribute("movie") Movie movie) {
         // save actor to database
         this.movieService.addNewMovie(movie);

@@ -12,7 +12,7 @@
 
     <h2>Update Movie</h2>
 
-    <form action="#" th:action="@{/saveMovie}" th:object="${movie}" ,method="post">
+    <form action="#" th:action="@{/saveMovie}" th:object="${movie}" ,method="put">
 
         <input type="text" th:field="*{explanation}"  class="form-control mb-4 col-4">
         <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
