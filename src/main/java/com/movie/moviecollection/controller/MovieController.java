@@ -31,7 +31,7 @@ public class MovieController {
         return this.movieService.getAllMovies();
     }
 
-    @PostMapping("/saveMovie")
+    @RequestMapping(value = "/saveMovie",method = {RequestMethod.GET,RequestMethod.POST})
     public String saveActor(@ModelAttribute("movie") Movie movie) {
         // save actor to database
         this.movieService.addNewMovie(movie);

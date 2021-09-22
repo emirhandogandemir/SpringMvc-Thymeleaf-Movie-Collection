@@ -40,7 +40,7 @@ public class ActorController {
         return "new_actor";
     }
 
-    @PostMapping(value = "/saveActor")
+    @RequestMapping(value = "/saveActor",method = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
     public String saveActor(Actor actor) {
         this.actorService.addNewActor(actor);
         return "redirect:/";
@@ -53,7 +53,7 @@ public class ActorController {
         return "update_actor";
     }
 
-    @PostMapping("/deleteActor/{id}")
+    @RequestMapping(value = "/deleteActor/{id}",method = {RequestMethod.GET,RequestMethod.POST})
     public String deleteActor(@PathVariable(value = "id") int id, Model model) {
 
         this.actorService.deleteActorById(id);
