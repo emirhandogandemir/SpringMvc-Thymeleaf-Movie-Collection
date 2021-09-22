@@ -1,6 +1,7 @@
 package com.movie.moviecollection.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -11,12 +12,15 @@ public class Actor {
     private int id;
 
     @Column(name="name",nullable = false)
+    @Size(min = 3,max = 30)
     private String name;
 
     @Column(name="surname",nullable = false)
+    @Size(min = 3,max = 30)
     private String surname;
 
     @Column(name="role",nullable = true)
+    @Size(min = 3,max = 30)
     private String role;
 
     @ManyToOne()

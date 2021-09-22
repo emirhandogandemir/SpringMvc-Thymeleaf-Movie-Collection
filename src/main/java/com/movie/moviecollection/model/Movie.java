@@ -1,6 +1,7 @@
 package com.movie.moviecollection.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,15 +21,19 @@ public class Movie {
     private String releaseYear;
 
     @Column(name = "type", nullable = false)
+    @Size(min = 3,max = 30)
     private String type;
 
     @Column(name = "explanation", nullable = false)
+    @Size(min = 3,max = 30)
     private String explanation;
 
     @Column(name = "media", nullable = false)
+    @Size(min = 3,max = 30)
     private String media;
 
     @Column(name = "language", nullable = false)
+    @Size(min = 3,max = 30)
     private String language;
 
     @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
