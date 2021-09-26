@@ -53,9 +53,12 @@ public class ActorController {
         return "update_actor";
     }
 
-    @RequestMapping(value = "/deleteActor/{id}",method = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
-    public String deleteActor(@PathVariable(value = "id") int id, Model model) {
 
+    // delete metodu şu anda aktive olarak çalışmıyor
+    @RequestMapping(value = "/deleteActor/{id}",method = {RequestMethod.GET,RequestMethod.DELETE})
+    public String deleteActor(@PathVariable(value = "id") int id, Model model) {
+        Actor actor =this.actorService.findActorById(id);
+        System.out.println(actor.getName()+ " "+actor.getSurname());
         this.actorService.deleteActorById(id);
         return "redirect:/";
 
