@@ -16,6 +16,6 @@ public interface ActorService {
 
     Actor updateActor(Actor actor);
 
-    void deleteActorById(int id);
+    void deleteByActorId(int id);
 
 }
